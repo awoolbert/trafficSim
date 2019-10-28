@@ -2,11 +2,11 @@
 //                      Defines important variables
 //*************************************************************************
 
-var carCount = 20;
-var carPhoneCheckPercent = 0.50; //percentage of cars that check phones
+var carCount = 30;
+var carPhoneCheckPercent = 0.167; //percentage of cars that check phones
 var delayTime = 10; //phone-checkers' acceleration delay in seconds
 var canSize = 560; //size of the square canvas
-var trackLengthM = 400; //length of outer edge of track in meters
+var trackLengthM = 600; //length of outer edge of track in meters
 var canCen = canSize / 2; //center of the canvas
 var temp = 0; //a temporary variable
 var carLengthM = 4; //length of 1 car in meters
@@ -33,14 +33,14 @@ var endTest = 0; //length of test (test endpoint in timePass)
 //-------------------------------------------------------------------------
 var drawBackground = function() {
 
-  background(0, 200, 255);
+  background(135, 18, 84);
 
   //outer circle
   fill(0, 0, 0);
   ellipse(canCen, canCen, outerEdgeP, outerEdgeP);
 
   //inner cirlce
-  fill(0, 200, 255);
+  fill(135, 18, 84);
   ellipse(canCen, canCen, innerEdgeP, innerEdgeP);
 
   //line to measure car flow rate
@@ -160,7 +160,7 @@ Car.prototype.decide = function() {
       //is the jam leader (leader has already left the jam)
 
       if (this.dvdt > 0.1) { 
-        //increase current speed by shutter speed
+        //increase current delay by shutter speed
         this.currentDelay = this.currentDelay + shutterSpeed;
         this.color = color(255, 0, 0);
       } 
